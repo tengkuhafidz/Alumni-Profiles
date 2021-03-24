@@ -1,10 +1,17 @@
 import axios from 'axios'
-import {Item, SheetsDimension, SHEET_ID, SHEET_KEY, SiteData} from '../utils/constants'
+import {
+	defaultSiteData,
+	Item,
+	SheetsDimension,
+	SHEET_ID,
+	SHEET_KEY,
+	SiteData,
+} from '../utils/constants'
 
 export const getItems = async () => {
 	const {data} = await fetchSheetsData('items', 'A2:E', SheetsDimension.ROWS)
 	const allItems = transformItemsData(data.values)
-  return allItems.filter(item => !item.hide)
+	return allItems.filter(item => item.isActive)
 }
 
 const fetchSheetsData = async (
@@ -23,7 +30,7 @@ const transformItemsData = (itemValues: any[]): Item[] => {
 		tags: itemValue[1]?.split(','),
 		imageUrl: itemValue[2],
 		destinationUrl: itemValue[3],
-		hide: itemValue[4] === 'TRUE',
+		isActive: itemValue[4] === 'TRUE',
 	}))
 }
 
@@ -37,8 +44,9 @@ export const getSiteData = async () => {
 }
 
 const transformSiteData = (siteDataValue: any[]): SiteData => ({
-	logoUrl: siteDataValue[1],
-	themeColor: siteDataValue[2],
+	// GENERAL
+	logoUrl: siteDataValue[1] || defaultSiteData.logoUrl,
+	themeColor: siteDataValue[2]?.toLowerCase() || defaultSiteData.themeColor,
 	darkMode: siteDataValue[3] === 'TRUE',
 	// NAVBAR
 	navButtonText: siteDataValue[5],
@@ -54,7 +62,7 @@ const transformSiteData = (siteDataValue: any[]): SiteData => ({
 	footerLinkableText: siteDataValue[15],
 	footerLinkableUrl: siteDataValue[16],
 	//SEO
-	seoTitle: siteDataValue[18],
-	seoDescription: siteDataValue[19],
-	seoBannerUrl: siteDataValue[20],
+	seoTitle: siteDataValue[18] || defaultSiteData.seoTitle,
+	seoDescription: siteDataValue[19] || defaultSiteData.seoDescription,
+	seoBannerUrl: siteDataValue[20] || defaultSiteData.seoBannerUrl,
 })
