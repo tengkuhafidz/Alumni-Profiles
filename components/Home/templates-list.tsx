@@ -1,4 +1,11 @@
+import {useContext} from 'react'
+import {getColors} from '../../utils/getColor'
+import SiteDataContext from '../../utils/SiteDataContext'
+
 export default function TemplatesList({items}) {
+	const {themeColor} = useContext(SiteDataContext)
+	const {ringColor} = getColors(themeColor)
+
 	const renderTags = tags => {
 		return tags.map(tag => (
 			<span
@@ -16,7 +23,7 @@ export default function TemplatesList({items}) {
 				<a href={destinationUrl} target="_blank">
 					<img
 						src={imageUrl}
-						className="rounded-lg shadow-lg hover:shadow-xl cursor-pointer w-full hover:ring-4 ring-green-500 ring-opacity-50"
+						className={`rounded-lg shadow-lg hover:shadow-xl cursor-pointer w-full hover:ring-4 ${ringColor} ring-opacity-50`}
 					/>
 				</a>
 				<h3 className="font-semibold text-xl mt-4">{title}</h3>

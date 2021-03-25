@@ -1,4 +1,5 @@
 import {useContext} from 'react'
+import {getColors} from '../../utils/getColors'
 import SiteDataContext from '../../utils/SiteDataContext'
 
 export default function Navbar() {
@@ -10,6 +11,9 @@ export default function Navbar() {
 		themeColor,
 		logoUrl,
 	} = useContext(SiteDataContext)
+
+	const {bgColor, hoverBgColor} = getColors(themeColor)
+
 	return (
 		<div className="flex">
 			<div className="flex-grow">
@@ -24,7 +28,7 @@ export default function Navbar() {
 					{navMenuText}
 				</a>
 				<button
-					className={`ml-4 md:ml-8 py-2 px-6 rounded-md text-white bg-green-600 hover:bg-green-700`}
+					className={`ml-4 md:ml-8 py-2 px-6 rounded-md text-white ${bgColor} ${hoverBgColor}`}
 				>
 					<a href={navButtonUrl} target="_blank">
 						<span>{navButtonText}</span>
