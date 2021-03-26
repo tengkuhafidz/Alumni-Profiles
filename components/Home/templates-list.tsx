@@ -1,5 +1,5 @@
 import {useContext} from 'react'
-import {getColors} from '../../utils/getColor'
+import {getColors} from '../../utils/getColors'
 import SiteDataContext from '../../utils/SiteDataContext'
 
 export default function TemplatesList({items}) {
