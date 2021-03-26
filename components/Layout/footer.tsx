@@ -28,6 +28,22 @@ export default function Footer() {
 					{footerLinkableText}
 				</a>
 			</p>
+			<WebsheetsBranding />
 		</div>
+	)
+}
+
+function WebsheetsBranding() {
+	return (
+		<p className="mt-2 font-semibold">
+			Powered by{' '}
+			<a
+				href="https://websheets.co"
+				target="_blank"
+				className="hover:text-green-600 underline"
+			>
+				Websheets
+			</a>
+		</p>
 	)
 }
