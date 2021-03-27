@@ -2,9 +2,11 @@ import {defaultSiteData, Item, SiteData} from '../utils/constants'
 
 const stringToBoolean = (field: string) => field === 'TRUE'
 const stringToArray = (field: string) => field?.split(',')
+const toLowercase = (field: string) => field?.toLowerCase()
 
 export const transformItemsData = (itemValues: any[]): Item[] => {
-	return itemValues.map(itemValue => ({
+	return itemValues.map((itemValue, index) => ({
+		id: index,
 		title: itemValue[0],
 		tags: stringToArray(itemValue[1]),
 		imageUrl: itemValue[2],
@@ -16,7 +18,7 @@ export const transformItemsData = (itemValues: any[]): Item[] => {
 export const transformSiteData = (siteDataValue: any[]): SiteData => ({
 	// GENERAL
 	logoUrl: siteDataValue[1] || defaultSiteData.logoUrl,
-	themeColor: siteDataValue[2]?.toLowerCase() || defaultSiteData.themeColor,
+	themeColor: toLowercase(siteDataValue[2]) || defaultSiteData.themeColor,
 	darkMode: stringToBoolean(siteDataValue[3]),
 	// NAVBAR
 	navButtonText: siteDataValue[5],
