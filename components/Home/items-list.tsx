@@ -12,7 +12,7 @@ export default function ItemsList({items}: Props) {
 	}
 
 	return (
-		<div className="py-4 mb-24 grid md:grid-cols-3 md:gap-x-8 gap-y-16 md:gap-y-16">
+		<div className="py-4 mb-24 grid grid-cols-2 gap-x-4 md:grid-cols-4 md:gap-x-8 lg:grid-cols-5 xl:grid-cols-6 gap-y-8 md:gap-y-16">
 			{renderItems()}
 		</div>
 	)

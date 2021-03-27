@@ -9,12 +9,10 @@ import {SiteDataProvider} from '../utils/SiteDataContext'
 export default function Index({siteData, items}) {
 	return (
 		<SiteDataProvider value={siteData}>
-			<div className={siteData.darkMode ? 'dark' : ''}>
-				<Layout>
-					<Hero />
-					<ItemsList items={items} />
-				</Layout>
-			</div>
+			<Layout>
+				<Hero />
+				<ItemsList items={items} />
+			</Layout>
 		</SiteDataProvider>
 	)
 }
@@ -22,7 +20,7 @@ export default function Index({siteData, items}) {
 export const getStaticProps: GetStaticProps = async () => {
 	const items = await getItems()
 	const siteData = await getSiteData()
-
+	console.log('items', items)
 	return {
 		props: {
 			siteData,

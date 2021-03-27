@@ -1,28 +1,10 @@
-import {defaultSiteData, Item, Madrasah, SiteData} from '../utils/constants'
+import { defaultSiteData, Item, SiteData } from '../utils/constants'
+import { stringToMadrasahDetails } from '../utils/madrasah'
 
 const stringToBoolean = (field: string) => field === 'TRUE'
 const stringToArray = (field: string) => field?.split(',')
-const toLowercase = (field: string) => field?.toLowerCase()
+export const toLowercase = (field: string) => field?.toLowerCase()
 
-const stringToMadrasahEnum = (madrasah: string) => {
-	const madrasahInLowerCase = toLowercase(madrasah)
-	switch(madrasahInLowerCase) {
-		case "irsyad":
-			return Madrasah.IRSYAD
-		case "alsagoff":
-			return Madrasah.ALSAGOFF
-		case "aljunied":
-			return Madrasah.ALJUNIED
-		case "arabiah":
-			return Madrasah.ARABIAH
-		case "al-maarif":
-			return Madrasah.AlMAARIF
-		case "wak tanjong":
-			return Madrasah.WAKTANJONG
-		default:
-			return Madrasah.IRSYAD
-	}
-}
 
 export const transformItemsData = (itemValues: any[]): Item[] => {
 	return itemValues.map((itemValue, index) => ({
@@ -30,14 +12,14 @@ export const transformItemsData = (itemValues: any[]): Item[] => {
 		name: itemValue[0],
 		career: itemValue[1],
 		fields: stringToArray(itemValue[2]),
-		madrasah: stringToMadrasahEnum(itemValue[3]),
+		madrasah: stringToMadrasahDetails(itemValue[3]),
 		graduationBatch: itemValue[4],
 		education: itemValue[5],
 		interests: itemValue[6],
 		advice: itemValue[7],
-		profileImage: itemValue[8],
-		profileUrl: itemValue[9],
-		isActive: stringToBoolean(itemValue[20]),
+		profileImageUrl: itemValue[8],
+		profilePageUrl: itemValue[9],
+		isActive: stringToBoolean(itemValue[10]),
 	}))
 }
 
@@ -52,12 +34,11 @@ export const transformSiteData = (siteDataValue: any[]): SiteData => ({
 	heroTitle: siteDataValue[7],
 	heroDescription: siteDataValue[8],
 	//FOOTER
-	copyrightText: siteDataValue[12],
-	footerText: siteDataValue[13],
-	footerLinkableText: siteDataValue[14],
-	footerLinkableUrl: siteDataValue[15],
+	footerText: siteDataValue[10],
+	footerLinkableText: siteDataValue[11],
+	footerLinkableUrl: siteDataValue[12],
 	//SEO
-	seoTitle: siteDataValue[17] || defaultSiteData.seoTitle,
-	seoDescription: siteDataValue[18] || defaultSiteData.seoDescription,
-	seoBannerUrl: siteDataValue[19] || defaultSiteData.seoBannerUrl,
+	seoTitle: siteDataValue[13] || defaultSiteData.seoTitle,
+	seoDescription: siteDataValue[14] || defaultSiteData.seoDescription,
+	seoBannerUrl: siteDataValue[15] || defaultSiteData.seoBannerUrl,
 })
