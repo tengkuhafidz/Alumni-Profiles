@@ -11,5 +11,9 @@ export default function ItemsList({items}: Props) {
 		return items.map(item => <SingleItem item={item} key={item.id} />)
 	}
 
-	return <div className="py-4 mb-24">{renderItems()}</div>
+	return (
+		<div className="py-4 mb-24 grid md:grid-cols-3 md:gap-x-8 gap-y-16 md:gap-y-16">
+			{renderItems()}
+		</div>
+	)
 }
