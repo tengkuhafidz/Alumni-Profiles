@@ -1,40 +1,63 @@
-import {defaultSiteData, Item, SiteData} from '../utils/constants'
+import {defaultSiteData, Item, Madrasah, SiteData} from '../utils/constants'
 
 const stringToBoolean = (field: string) => field === 'TRUE'
 const stringToArray = (field: string) => field?.split(',')
 const toLowercase = (field: string) => field?.toLowerCase()
 
+const stringToMadrasahEnum = (madrasah: string) => {
+	const madrasahInLowerCase = toLowercase(madrasah)
+	switch(madrasahInLowerCase) {
+		case "irsyad":
+			return Madrasah.IRSYAD
+		case "alsagoff":
+			return Madrasah.ALSAGOFF
+		case "aljunied":
+			return Madrasah.ALJUNIED
+		case "arabiah":
+			return Madrasah.ARABIAH
+		case "al-maarif":
+			return Madrasah.AlMAARIF
+		case "wak tanjong":
+			return Madrasah.WAKTANJONG
+		default:
+			return Madrasah.IRSYAD
+	}
+}
+
 export const transformItemsData = (itemValues: any[]): Item[] => {
 	return itemValues.map((itemValue, index) => ({
 		id: index,
-		title: itemValue[0],
-		tags: stringToArray(itemValue[1]),
-		imageUrl: itemValue[2],
-		destinationUrl: itemValue[3],
-		isActive: stringToBoolean(itemValue[4]),
+		name: itemValue[0],
+		career: itemValue[1],
+		fields: stringToArray(itemValue[2]),
+		madrasah: stringToMadrasahEnum(itemValue[3]),
+		graduationBatch: itemValue[4],
+		education: itemValue[5],
+		interests: itemValue[6],
+		advice: itemValue[7],
+		profileImage: itemValue[8],
+		profileUrl: itemValue[9],
+		isActive: stringToBoolean(itemValue[20]),
 	}))
 }
 
 export const transformSiteData = (siteDataValue: any[]): SiteData => ({
-	// GENERAL
-	logoUrl: siteDataValue[1] || defaultSiteData.logoUrl,
-	themeColor: toLowercase(siteDataValue[2]) || defaultSiteData.themeColor,
-	darkMode: stringToBoolean(siteDataValue[3]),
 	// NAVBAR
-	navButtonText: siteDataValue[5],
-	navButtonUrl: siteDataValue[6],
-	navMenuText: siteDataValue[7],
-	navMenuUrl: siteDataValue[8],
+	logoUrl: siteDataValue[1] || defaultSiteData.logoUrl,
+	navButtonText: siteDataValue[2],
+	navButtonUrl: siteDataValue[3],
+	navMenuText: siteDataValue[4],
+	navMenuUrl: siteDataValue[5],
 	//HERO
-	heroTitle: siteDataValue[10],
-	heroDescription: siteDataValue[11],
+	heroTitle: siteDataValue[7],
+	heroDescription: siteDataValue[8],
 	//FOOTER
-	copyrightText: siteDataValue[13],
-	footerText: siteDataValue[14],
-	footerLinkableText: siteDataValue[15],
-	footerLinkableUrl: siteDataValue[16],
+	copyrightText: siteDataValue[12],
+	footerText: siteDataValue[13],
+	footerLinkableText: siteDataValue[14],
+	footerLinkableUrl: siteDataValue[15],
 	//SEO
-	seoTitle: siteDataValue[18] || defaultSiteData.seoTitle,
-	seoDescription: siteDataValue[19] || defaultSiteData.seoDescription,
-	seoBannerUrl: siteDataValue[20] || defaultSiteData.seoBannerUrl,
+	seoTitle: siteDataValue[17] || defaultSiteData.seoTitle,
+	seoDescription: siteDataValue[18] || defaultSiteData.seoDescription,
+	seoBannerUrl: siteDataValue[19] || defaultSiteData.seoBannerUrl,
 })

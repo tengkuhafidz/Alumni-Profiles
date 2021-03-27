@@ -13,7 +13,7 @@ const fetchSheetsData = async (
 }
 
 export const getItems = async () => {
-	const {data} = await fetchSheetsData('items', 'A2:E', SheetsDimension.ROWS)
+	const {data} = await fetchSheetsData('items', 'A2:K', SheetsDimension.ROWS)
 	const allItems = transformItemsData(data.values)
 	return allItems.filter(item => item.isActive)
 }
@@ -21,7 +21,7 @@ export const getItems = async () => {
 export const getSiteData = async () => {
 	const {data} = await fetchSheetsData(
 		'site',
-		'B1:B21',
+		'B1:B18',
 		SheetsDimension.COLUMNS,
 	)
 	return transformSiteData(data.values[0])

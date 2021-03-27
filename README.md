@@ -1,8 +1,7 @@
-# Websheets - Templates Showcase
+# Websheets - SG Madrasah Alumni Profile
 
-This is [Websheets](https://websheets.co) template called Template Showcase.
+This site is built with [Websheets](https://websheets.co) engine
 
-This is perfect for galleries of websites / design templates to showcase.
 
 **Tech Stack:**
 
