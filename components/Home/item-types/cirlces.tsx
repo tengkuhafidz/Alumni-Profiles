@@ -10,7 +10,7 @@ export default function Circles({item}: Props) {
 	return (
 		<div>
 			<img
-				className={`w-32 h-32 rounded-full mx-auto cursor-pointer border-2 ${madrasah.borderColor} border-opacity-50 shadow-xl`}
+				className={`w-32 h-32 rounded-full mx-auto cursor-pointer border-2 ${madrasah.borderColor} border-opacity-50 shadow-lg transform hover:scale-125 hover:shadow-2xl`}
 				src={profileImageUrl}
 				alt=""
 				width="384"

@@ -2,6 +2,7 @@ import {GetStaticProps} from 'next'
 import React from 'react'
 import Hero from '../components/Home/hero'
 import ItemsList from '../components/Home/items-list'
+import Searchbar from '../components/Home/searchbar'
 import Layout from '../components/Layout'
 import {getItems, getSiteData} from '../services/sheet'
 import {SiteDataProvider} from '../utils/SiteDataContext'
@@ -11,6 +12,7 @@ export default function Index({siteData, items}) {
 		<SiteDataProvider value={siteData}>
 			<Layout>
 				<Hero />
+				<Searchbar />
 				<ItemsList items={items} />
 			</Layout>
 		</SiteDataProvider>

@@ -1,12 +1,12 @@
 import {toLowercase} from '../services/transformers'
 
 export enum MadrasahName {
-	IRSYAD = 'Madrasah Irsyad Zuhri Al-Islamiah',
-	ARABIAH = 'Madrasah Al-Arabiah Al-Islamiah',
-	ALJUNIED = 'Madrasah Aljunied Al-Islamiah',
-	WAKTANJONG = 'Madrasah Wak Tanjong Al-Islamiah',
-	AlMAARIF = 'Madrasah Al-Ma’arif Al-Islamiah',
-	ALSAGOFF = 'Madrasah Alsagoff Al-Arabiah',
+	IRSYAD = 'Madrasah Irsyad Zuhri',
+	ARABIAH = 'Madrasah Al-Arabiah',
+	ALJUNIED = 'Madrasah Aljunied',
+	WAKTANJONG = 'Madrasah Wak Tanjong',
+	AlMAARIF = 'Madrasah Al-Ma’arif',
+	ALSAGOFF = 'Madrasah Alsagoff',
 }
 
 export interface Madrasah {
@@ -18,7 +18,7 @@ export interface Madrasah {
 const IRSYAD_DETAILS: Madrasah = {
 	name: MadrasahName.IRSYAD,
 	iconUrl: '/images/madrasah-logo/irsyad-logo.png',
-	borderColor: 'border-green-800',
+	borderColor: 'border-green-600',
 }
 
 const ARABIAH_DETAILS: Madrasah = {
@@ -30,7 +30,7 @@ const ARABIAH_DETAILS: Madrasah = {
 const ALJUNIED_DETAILS: Madrasah = {
 	name: MadrasahName.ALJUNIED,
 	iconUrl: '/images/madrasah-logo/aljunied-logo.png',
-	borderColor: 'border-blue-400',
+	borderColor: 'border-blue-600',
 }
 
 const WAKTANJONG_DETAILS: Madrasah = {
@@ -47,7 +47,7 @@ const ALMAARIF_DETAILS: Madrasah = {
 
 const ALSAGOFF_DETAILS: Madrasah = {
 	name: MadrasahName.ALSAGOFF,
-	iconUrl: 'alsagoff-logo.png',
+	iconUrl: '/images/madrasah-logo/alsagoff-logo.png',
 	borderColor: 'border-yellow-500',
 }
 

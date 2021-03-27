@@ -1,5 +1,6 @@
 import {useContext} from 'react'
 import SiteDataContext from '../../utils/SiteDataContext'
+import MadrasahStack from './madrasah-stack'
 
 export default function Hero() {
 	const {heroTitle, heroDescription} = useContext(SiteDataContext)
@@ -9,6 +10,7 @@ export default function Hero() {
 			<p className="py-6 font-light text-md text-gray-600 dark:text-gray-400">
 				{heroDescription}
 			</p>
+			<MadrasahStack />
 		</div>
 	)
 }
