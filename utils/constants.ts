@@ -1,4 +1,4 @@
-import { Madrasah } from "./madrasah"
+import {Madrasah} from './madrasah'
 
 export interface Item {
 	id: number
@@ -61,6 +61,8 @@ export enum SheetsDimension {
 	ROWS = 'ROWS',
 	COLUMNS = 'COLUMNS',
 }
+
+export const ALL = 'All'
 
 export const SHEET_ID = process.env.SHEET_ID
 export const SHEET_KEY = process.env.SHEET_KEY

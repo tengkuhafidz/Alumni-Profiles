@@ -1,11 +1,11 @@
 import Image from 'next/image'
-import {allMadrasahs} from '../../utils/madrasah'
+import {allMadrasahs} from '../../../utils/madrasah'
 
 export default function MadrasahStack() {
 	const renderSingleMadrasah = () => {
 		return allMadrasahs.map(madrasah => (
 			<li
-				className={`inline-block px-1 bg-gray-100 shadow pt-1 border border-opacity-50 rounded-full ${madrasah.borderColor} transform hover:scale-125 hover:shadow-lg cursor-pointer`}
+				className={`inline-block px-1 bg-gray-100 shadow pt-1 border border-opacity-50 rounded-full ${madrasah.borderColor}`}
 				key={madrasah.name}
 			>
 				<Image

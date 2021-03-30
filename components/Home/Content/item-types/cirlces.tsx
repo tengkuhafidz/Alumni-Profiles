@@ -1,4 +1,4 @@
-import {Item} from '../../../utils/constants'
+import {Item} from '../../../../utils/constants'
 
 interface Props {
 	item: Item

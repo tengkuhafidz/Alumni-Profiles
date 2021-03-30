@@ -1,5 +1,5 @@
 import React from 'react'
-import { Item } from '../../utils/constants'
+import { Item } from '../../../utils/constants'
 import Circles from './item-types/cirlces'
 
 interface Props {

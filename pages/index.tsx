@@ -1,8 +1,7 @@
 import {GetStaticProps} from 'next'
 import React from 'react'
-import Hero from '../components/Home/hero'
-import ItemsList from '../components/Home/items-list'
-import Searchbar from '../components/Home/searchbar'
+import Content from '../components/Home/Content'
+import Hero from '../components/Home/Hero'
 import Layout from '../components/Layout'
 import {getItems, getSiteData} from '../services/sheet'
 import {SiteDataProvider} from '../utils/SiteDataContext'
@@ -12,8 +11,7 @@ export default function Index({siteData, items}) {
 		<SiteDataProvider value={siteData}>
 			<Layout>
 				<Hero />
-				<Searchbar />
-				<ItemsList items={items} />
+				<Content items={items} />
 			</Layout>
 		</SiteDataProvider>
 	)
@@ -22,7 +20,7 @@ export default function Index({siteData, items}) {
 export const getStaticProps: GetStaticProps = async () => {
 	const items = await getItems()
 	const siteData = await getSiteData()
-	console.log('items', items)
+
 	return {
 		props: {
 			siteData,
