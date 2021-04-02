@@ -2,11 +2,11 @@ import {Item} from '../../../../utils/constants'
 
 interface Props {
 	item: Item
+	setSelectedItem: React.Dispatch<React.SetStateAction<Item>>
 }
 
-export default function Circles({item}: Props) {
+export default function Circles({item, setSelectedItem}: Props) {
 	const {id, name, career, profileImageUrl, madrasah} = item
-
 	return (
 		<div>
 			<img
@@ -15,6 +15,7 @@ export default function Circles({item}: Props) {
 				alt=""
 				width="384"
 				height="512"
+				onClick={() => setSelectedItem(item)}
 			/>
 			<div className="pt-6 text-center space-y-4">
 				<figcaption className="font-medium">

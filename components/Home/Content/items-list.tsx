@@ -1,14 +1,21 @@
 import React from 'react'
 import {Item} from '../../../utils/constants'
-import SingleItem from './single-item'
+import Circles from './item-types/cirlces'
 
 interface Props {
 	items: Item[]
+	setSelectedItem: React.Dispatch<React.SetStateAction<Item>>
 }
 
-export default function ItemsList({items}: Props) {
+export default function ItemsList({items, setSelectedItem}: Props) {
 	const renderItems = () => {
-		return items.map(item => <SingleItem item={item} key={item.id} />)
+		return items.map(item => (
+			<Circles
+				item={item}
+				key={item.id}
+				setSelectedItem={setSelectedItem}
+			/>
+		))
 	}
 
 	return (

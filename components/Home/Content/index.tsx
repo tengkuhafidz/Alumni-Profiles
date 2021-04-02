@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
-import { ALL, Item } from '../../../utils/constants'
-import { getFuseSearchResult } from '../../../utils/helpers'
+import React, {useState} from 'react'
+import {ALL, Item} from '../../../utils/constants'
+import {getFuseSearchResult} from '../../../utils/helpers'
 import FilterSection from './FilterSection'
 import ItemsList from './items-list'
+import Modal from 'react-modal'
+import ItemModal from './item-modal'
 
 interface Props {
 	items: Item[]
@@ -10,8 +12,9 @@ interface Props {
 
 export default function Content({items}: Props) {
 	const [searchTerm, setSearchTerm] = useState('')
-	const [selectedMadrasah, setSelectedMadrasah] = useState(ALL)
-	const [selectedField, setSelectedField] = useState(ALL)
+	const [selectedMadrasahFilter, setSelectedMadrasahFilter] = useState(ALL)
+	const [selectedFieldFilter, setSelectedFieldFilter] = useState(ALL)
+	const [selectedItem, setSelectedItem] = useState(null)
 
 	const searchResults = searchTerm
 		? getFuseSearchResult(items, searchTerm)
@@ -19,9 +22,24 @@ export default function Content({items}: Props) {
 
 	const filteredItems = searchResults.filter(
 		item =>
-			(selectedMadrasah === ALL || item.madrasah.name === selectedMadrasah) &&
-			(selectedField === ALL || item.fields.includes(selectedField)),
+			(selectedMadrasahFilter === ALL ||
+				item.madrasah.name === selectedMadrasahFilter) &&
+			(selectedFieldFilter === ALL ||
+				item.fields.includes(selectedFieldFilter)),
 	)
+
+	const renderModal = () => {
+		if (!selectedItem) {
+			return null
+		}
+
+		return (
+			<ItemModal
+				selectedItem={selectedItem}
+				setSelectedItem={setSelectedItem}
+			/>
+		)
+	}
 
 	return (
 		<div>
@@ -34,13 +52,14 @@ export default function Content({items}: Props) {
 				/>
 				<FilterSection
 					items={items}
-					selectedField={selectedField}
-					setSelectedField={setSelectedField}
-					selectedMadrasah={selectedMadrasah}
-					setSelectedMadrasah={setSelectedMadrasah}
+					selectedField={selectedFieldFilter}
+					setSelectedField={setSelectedFieldFilter}
+					selectedMadrasah={selectedMadrasahFilter}
+					setSelectedMadrasah={setSelectedMadrasahFilter}
 				/>
 			</div>
-			<ItemsList items={filteredItems} />
+			<ItemsList items={filteredItems} setSelectedItem={setSelectedItem} />
+			{renderModal()}
 		</div>
 	)
 }
