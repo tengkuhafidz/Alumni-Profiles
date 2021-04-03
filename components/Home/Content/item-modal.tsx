@@ -24,11 +24,6 @@ export default function ItemModal({selectedItem, setSelectedItem}: Props) {
 			className="mx-auto bg-white rounded-xl max-w-xs mt-4 md:max-w-2xl md:mt-20"
 			style={{
 				overlay: {
-					position: 'fixed',
-					top: 0,
-					left: 0,
-					right: 0,
-					bottom: 0,
 					backgroundColor: 'rgba(0, 0, 0, 0.75)',
 				},
 			}}
@@ -37,7 +32,7 @@ export default function ItemModal({selectedItem, setSelectedItem}: Props) {
 				<div className="relative p-4 md:p-6">
 					<div>
 						<img
-							className={`w-28 h-28 rounded-full cursor-pointer  shadow-lg transform hover:scale-125 hover:shadow-2xl`}
+							className={`w-28 h-28 rounded-full cursor-pointer  shadow-lg transform hover:scale-125 hover:shadow-2xl border ${madrasah.borderColor}`}
 							src={profileImageUrl}
 							alt=""
 							width="384"
@@ -48,7 +43,9 @@ export default function ItemModal({selectedItem, setSelectedItem}: Props) {
 						<div>
 							<h3 className="font-bold text-lg">{name}</h3>
 							<p className="leading-6">{career}</p>
-							<p className="font-light font-light text-sm">
+							<p
+								className={`font-light font-light text-sm ${madrasah.textColor}`}
+							>
 								Graduated from {madrasah.name}
 							</p>
 						</div>
@@ -80,7 +77,7 @@ export default function ItemModal({selectedItem, setSelectedItem}: Props) {
 							<a
 								href={profilePageUrl}
 								target="_blank"
-								className="p-3 border border-b-4 border-green-600  text-green-600 hover:bg-green-600 hover:text-white hover:border-green-700 rounded-xl"
+								className={`py-3 px-6 border border-b-4 rounded-xl hover:text-white ${madrasah.borderColor} ${madrasah.buttonBorderHoverColor} ${madrasah.textColor} ${madrasah.buttonBgHoverColor}`}
 							>
 								View Profile
 							</a>

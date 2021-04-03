@@ -2,9 +2,8 @@ import React, {useState} from 'react'
 import {ALL, Item} from '../../../utils/constants'
 import {getFuseSearchResult} from '../../../utils/helpers'
 import FilterSection from './FilterSection'
-import ItemsList from './items-list'
-import Modal from 'react-modal'
 import ItemModal from './item-modal'
+import ItemsList from './items-list'
 
 interface Props {
 	items: Item[]
