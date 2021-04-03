@@ -58,7 +58,7 @@ export default function Content({items}: Props) {
 		if (filteredItems.length < 1) {
 			return (
 				<div className="max-w-2xl bg-gray-100 px-2 mt-8 mb-12 py-6 rounded-xl mx-auto text-center">
-					<p className="text-gray-500 font-semibold text-lg">
+					<p className="text-gray-500 font-semibold">
 						No results found for {searchTermFilter}
 						{madrasahFilterMessage}
 						{fieldFilterMessage}.
@@ -102,7 +102,7 @@ export default function Content({items}: Props) {
 					</button>
 				</div>
 				<FilterSection
-					items={items}
+					items={filteredItems}
 					selectedField={selectedFieldFilter}
 					setSelectedField={setSelectedFieldFilter}
 					selectedMadrasah={selectedMadrasahFilter}

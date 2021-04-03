@@ -25,6 +25,11 @@ export default function FilterSection({
 
 	const allMadrasahNames = allMadrasahs.map(madrasah => madrasah.name)
 
+	const setSelectedMadrasahAndResetSelectedField = (madrasahName: string) => {
+		setSelectedMadrasah(madrasahName)
+		setSelectedField(ALL)
+	}
+
 	const clearFilter = () => {
 		setSelectedMadrasah(ALL)
 		setSelectedField(ALL)
@@ -54,7 +59,7 @@ export default function FilterSection({
 				title="Graduated From"
 				options={allMadrasahNames}
 				selectedFilter={selectedMadrasah}
-				setSelectedFilter={setSelectedMadrasah}
+				setSelectedFilter={setSelectedMadrasahAndResetSelectedField}
 			/>
 			<FilterOptions
 				title="Field"
