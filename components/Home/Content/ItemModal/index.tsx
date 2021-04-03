@@ -21,6 +21,23 @@ export default function ItemModal({selectedItem, setSelectedItem}: Props) {
 		graduationBatch,
 	} = selectedItem
 
+	const renderButton = () => {
+		if (!profilePageUrl) {
+			return null
+		}
+		return (
+			<div className="mt-8 mb-4">
+				<a
+					href={profilePageUrl}
+					target="_blank"
+					className={`py-3 px-6 border border-b-4 rounded-xl hover:text-white ${madrasah.borderColor} ${madrasah.buttonBorderHoverColor} ${madrasah.textColor} ${madrasah.buttonBgHoverColor}`}
+				>
+					View Profile
+				</a>
+			</div>
+		)
+	}
+
 	return (
 		<Modal
 			isOpen={!!selectedItem}
@@ -36,7 +53,7 @@ export default function ItemModal({selectedItem, setSelectedItem}: Props) {
 				<div className="relative p-4 md:p-6">
 					<div>
 						<img
-							className={`w-28 h-28 rounded-full cursor-pointer  shadow-lg transform hover:scale-125 hover:shadow-2xl border ${madrasah.borderColor}`}
+							className={`w-28 h-28 rounded-full cursor-pointer  shadow-lg border ${madrasah.borderColor}`}
 							src={profileImageUrl}
 							alt=""
 							width="384"
@@ -50,7 +67,7 @@ export default function ItemModal({selectedItem, setSelectedItem}: Props) {
 							<p
 								className={`font-light font-light text-sm ${madrasah.textColor}`}
 							>
-								Graduated from {madrasah.name} ({graduationBatch})
+								{madrasah.name} ({graduationBatch})
 							</p>
 						</div>
 
@@ -61,16 +78,7 @@ export default function ItemModal({selectedItem, setSelectedItem}: Props) {
 						<SubSection title="Industry" description={fields.join(', ')} />
 						<SubSection title="Interests" description={interests} />
 						<SubSection title="Advice for Juniors" description={advice} />
-
-						<div className="mt-8 mb-4">
-							<a
-								href={profilePageUrl}
-								target="_blank"
-								className={`py-3 px-6 border border-b-4 rounded-xl hover:text-white ${madrasah.borderColor} ${madrasah.buttonBorderHoverColor} ${madrasah.textColor} ${madrasah.buttonBgHoverColor}`}
-							>
-								View Profile
-							</a>
-						</div>
+						{renderButton()}
 					</div>
 					<div className="absolute top-0 right-0">
 						<button
