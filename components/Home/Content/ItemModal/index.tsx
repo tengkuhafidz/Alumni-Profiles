@@ -53,7 +53,7 @@ export default function ItemModal({selectedItem, setSelectedItem}: Props) {
 				<div className="relative p-4 md:p-6">
 					<div>
 						<img
-							className={`w-28 h-28 rounded-full cursor-pointer  shadow-lg border ${madrasah.borderColor}`}
+							className={`w-28 h-28 object-cover rounded-full cursor-pointer  shadow-lg border ${madrasah.borderColor}`}
 							src={profileImageUrl}
 							alt=""
 							width="384"
