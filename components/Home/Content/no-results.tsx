@@ -1,4 +1,4 @@
-import {ALL, Item} from '../../../utils/constants'
+import {ALL} from '../../../utils/constants'
 
 interface Props {
 	searchTerm: string
