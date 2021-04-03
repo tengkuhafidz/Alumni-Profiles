@@ -27,7 +27,9 @@ export default function FilterSection({
 
 	const setSelectedMadrasahAndResetSelectedField = (madrasahName: string) => {
 		setSelectedMadrasah(madrasahName)
-		setSelectedField(ALL)
+		if (madrasahName !== ALL) {
+			setSelectedField(ALL)
+		}
 	}
 
 	const clearFilter = () => {

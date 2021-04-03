@@ -1,4 +1,4 @@
-import { ALL } from '../../../../utils/constants'
+import {ALL} from '../../../../utils/constants'
 
 interface Props {
 	title: string
