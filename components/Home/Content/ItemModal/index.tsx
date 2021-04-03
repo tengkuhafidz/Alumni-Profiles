@@ -1,5 +1,7 @@
-import {Item} from '../../../utils/constants'
+import {Item} from '../../../../utils/constants'
 import Modal from 'react-modal'
+import React from 'react'
+import SubSection from './sub-section'
 
 interface Props {
 	selectedItem: Item
@@ -16,7 +18,9 @@ export default function ItemModal({selectedItem, setSelectedItem}: Props) {
 		fields,
 		interests,
 		advice,
+		graduationBatch,
 	} = selectedItem
+
 	return (
 		<Modal
 			isOpen={!!selectedItem}
@@ -46,33 +50,18 @@ export default function ItemModal({selectedItem, setSelectedItem}: Props) {
 							<p
 								className={`font-light font-light text-sm ${madrasah.textColor}`}
 							>
-								Graduated from {madrasah.name}
+								Graduated from {madrasah.name} ({graduationBatch})
 							</p>
 						</div>
 
-						<div className="mt-4">
-							<h4 className="font-semibold text-gray-500 text-xs">
-								Post Madrasah Education
-							</h4>
-							<p className="text-sm ">{education}</p>
-						</div>
+						<SubSection
+							title="Post Madrasah Education"
+							description={education}
+						/>
+						<SubSection title="Industry" description={fields.join(', ')} />
+						<SubSection title="Interests" description={interests} />
+						<SubSection title="Advice for Juniors" description={advice} />
 
-						<div className="mt-4 text-xs">
-							<h4 className="font-semibold text-gray-500 text-xs">Industry</h4>
-							<p className="text-sm ">{fields.join(', ')}</p>
-						</div>
-
-						<div className="mt-4">
-							<h4 className="font-semibold text-gray-500 text-xs">Interests</h4>
-							<p className="text-sm ">{interests}</p>
-						</div>
-
-						<div className="mt-4">
-							<h4 className="font-semibold text-gray-500 text-xs">
-								Advice for Juniors
-							</h4>
-							<p className="text-sm">{advice}</p>
-						</div>
 						<div className="mt-8 mb-4">
 							<a
 								href={profilePageUrl}
