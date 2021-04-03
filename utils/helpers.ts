@@ -33,5 +33,6 @@ export const getDistinctFields = (items: Item[]) => {
 			})
 		}
 	})
-	return distinctFields
+
+	return distinctFields.sort()
 }

@@ -1,10 +1,10 @@
-import { defaultSiteData, Item, SiteData } from '../utils/constants'
-import { stringToMadrasahDetails } from '../utils/madrasah'
+import {defaultSiteData, Item, SiteData} from '../utils/constants'
+import {stringToMadrasahDetails} from '../utils/madrasah'
 
 const stringToBoolean = (field: string) => field === 'TRUE'
-const stringToArray = (field: string) => field?.split(',')
+const stringToArray = (field: string) =>
+	field?.split(',').map(field => field.trim())
 export const toLowercase = (field: string) => field?.toLowerCase()
-
 
 export const transformItemsData = (itemValues: any[]): Item[] => {
 	return itemValues.map((itemValue, index) => ({
