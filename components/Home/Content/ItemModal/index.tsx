@@ -76,7 +76,10 @@ export default function ItemModal({selectedItem, setSelectedItem}: Props) {
 							description={education}
 						/>
 						<SubSection title="Industry" description={fields.join(', ')} />
-						<SubSection title="Interests" description={interests} />
+						<SubSection
+							title="Additional Roles / Interests"
+							description={interests}
+						/>
 						<SubSection title="Advice for Juniors" description={advice} />
 						{renderButton()}
 					</div>
