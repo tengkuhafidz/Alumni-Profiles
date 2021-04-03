@@ -15,7 +15,7 @@ export default function ItemsList({items, setSelectedItem}: Props) {
 	}
 
 	return (
-		<div className="mb-24 grid grid-cols-2 gap-x-4 md:grid-cols-4 md:gap-x-8 lg:grid-cols-5 xl:grid-cols-6 gap-y-8 md:gap-y-10">
+		<div className="py-16 mb-8 grid grid-cols-2 gap-x-4 md:grid-cols-4 md:gap-x-8 lg:grid-cols-5 xl:grid-cols-6 gap-y-8 md:gap-y-10 ">
 			{renderItems()}
 		</div>
 	)
