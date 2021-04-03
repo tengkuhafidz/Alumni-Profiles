@@ -1,10 +1,10 @@
-import {ALL} from '../../../../utils/constants'
+import { ALL } from '../../../../utils/constants'
 
 interface Props {
 	title: string
 	options: string[]
 	selectedFilter: string
-	setSelectedFilter: any
+	setSelectedFilter: React.Dispatch<React.SetStateAction<string>>
 }
 
 export default function FilterOptions({

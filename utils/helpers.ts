@@ -16,7 +16,7 @@ export const getFuseSearchResult = (
 		threshold: 0.4,
 		location: 0,
 		distance: 100,
-		keys: ['name', 'madrasah.name', 'fields', 'education', 'career'],
+		keys: ['name', 'madrasah.name', 'career', 'fields', 'education'],
 	}
 
 	const fuse = new Fuse(items, options)
