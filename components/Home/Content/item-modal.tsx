@@ -21,7 +21,7 @@ export default function ItemModal({selectedItem, setSelectedItem}: Props) {
 		<Modal
 			isOpen={!!selectedItem}
 			onRequestClose={() => setSelectedItem(null)}
-			className="mx-auto bg-white rounded-xl max-w-xs mt-4 md:max-w-2xl md:mt-20"
+			className="mx-auto bg-white rounded-xl max-w-xs mt-4 md:max-w-2xl md:mt-20 outline-none"
 			style={{
 				overlay: {
 					backgroundColor: 'rgba(0, 0, 0, 0.75)',
@@ -59,7 +59,7 @@ export default function ItemModal({selectedItem, setSelectedItem}: Props) {
 
 						<div className="mt-4 text-xs">
 							<h4 className="font-semibold text-gray-500 text-xs">Industry</h4>
-							<p className="text-sm ">{fields}</p>
+							<p className="text-sm ">{fields.join(', ')}</p>
 						</div>
 
 						<div className="mt-4">
