@@ -16,6 +16,7 @@ export default function Circles({item, setSelectedItem}: Props) {
 				width="384"
 				height="512"
 				onClick={() => setSelectedItem(item)}
+				loading="lazy"
 			/>
 			<div className="mt-4 text-center space-y-4">
 				<figcaption className="font-medium">
